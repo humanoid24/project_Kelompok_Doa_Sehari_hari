@@ -72,7 +72,7 @@ class Sidebar extends StatelessWidget {
           },
         ),
         SidebarXItem(
-          icon: Icons.star,
+          icon: Icons.menu_book_rounded,
           label: 'Doa Solat',
           onTap: () {
             Navigator.of(context).push(MaterialPageRoute(

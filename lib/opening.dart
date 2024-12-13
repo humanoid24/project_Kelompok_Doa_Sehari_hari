@@ -58,71 +58,129 @@ class _OpeningState extends State<Opening> {
         title: const Text("Selamat Datang"),
         backgroundColor: Colors.blue,
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(
-              width: 250,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => DoaTab()),
-                  );
-                },
-                child: const Text("Doa Sehari-hari dan tahlil"),
-              ),
+      body: Stack(
+        children: [
+          // Gambar background full cover
+          Positioned.fill(
+            child: Image.asset(
+              'assets/body.png', // Lokasi gambar Anda
+              fit: BoxFit.cover, // Gambar mengisi seluruh ruang
             ),
-            const SizedBox(height: 16),
-            SizedBox(
-              width: 250,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => BuatDoaSendiri()),
-                  );
-                },
-                child: const Text("Tambahkan Doa"),
-              ),
+          ),
+          // Konten di atas gambar
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // Tombol-tombol lainnya dengan border
+                SizedBox(
+                  width: 250,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => DoaTab()),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.transparent, // Transparan
+                      elevation: 0, // Hapus bayangan
+                      padding: EdgeInsets.symmetric(vertical: 16), // Padding tombol
+                      side: BorderSide(color: Colors.white, width: 2), // Garis border
+                    ),
+                    child: const Text(
+                      "Doa Sehari-hari dan tahlil",
+                      style: TextStyle(color: Colors.white), // Warna teks tombol
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16),
+                SizedBox(
+                  width: 250,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => BuatDoaSendiri()),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.transparent,
+                      elevation: 0,
+                      padding: EdgeInsets.symmetric(vertical: 16),
+                      side: BorderSide(color: Colors.white, width: 2), // Garis border
+                    ),
+                    child: const Text(
+                      "Tambahkan Doa",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16),
+                SizedBox(
+                  width: 250,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => DoaSetelahSolatfardusunnah()),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.transparent,
+                      elevation: 0,
+                      padding: EdgeInsets.symmetric(vertical: 16),
+                      side: BorderSide(color: Colors.white, width: 2), // Garis border
+                    ),
+                    child: const Text(
+                      "Doa Setelah Solat",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16),
+                SizedBox(
+                  width: 250,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => DoaSolat()),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.transparent,
+                      elevation: 0,
+                      padding: EdgeInsets.symmetric(vertical: 16),
+                      side: BorderSide(color: Colors.white, width: 2), // Garis border
+                    ),
+                    child: const Text(
+                      "Doa Solat",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16),
+                SizedBox(
+                  width: 250,
+                  child: ElevatedButton(
+                    onPressed: _showExitConfirmationDialog, // Tambahkan fungsi ini
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.transparent,
+                      elevation: 0,
+                      padding: EdgeInsets.symmetric(vertical: 16),
+                      side: BorderSide(color: Colors.white, width: 2), // Garis border
+                    ),
+                    child: const Text(
+                      "Keluar",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+              ],
             ),
-            const SizedBox(height: 16),
-            SizedBox(
-              width: 250,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => DoaSetelahSolatfardusunnah()),
-                  );
-                },
-                child: const Text("Doa Setelah Solat"),
-              ),
-            ),
-            const SizedBox(height: 16),
-            SizedBox(
-              width: 250,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => DoaSolat()),
-                  );
-                },
-                child: const Text("Doa Solat"),
-              ),
-            ),
-            const SizedBox(height: 16),
-            SizedBox(
-              width: 250,
-              child: ElevatedButton(
-                onPressed: _showExitConfirmationDialog, // Tambahkan fungsi ini
-                child: const Text("Keluar"),
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
