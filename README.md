@@ -1,6 +1,6 @@
 # project_app
 
-A new Flutter project.
+Project doa sehari hari.
 
 ## Getting Started
 
